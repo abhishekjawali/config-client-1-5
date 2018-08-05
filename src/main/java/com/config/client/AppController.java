@@ -15,8 +15,11 @@ public class AppController {
 	@Value("${environnment}")
 	private String environment;
 
+	@Value("${vcap.application.instance_index}")
+	private String instanceIndex;
+
 	@RequestMapping("/message")
 	public String getMessage() {
-		return this.message + " Environment :: "+ this.environment;
+		return this.message + " | Environment :: "+ this.environment + "| Instance Index " + instanceIndex;
 	}
 }
